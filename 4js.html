@@ -1,0 +1,16 @@
+<script type="text/javascript">
+	let price = 40;
+	let day = prompt('Введите количество дней для брони', '0');
+	if (day >= 7) {
+		let sum = price*day-50;
+		alert(sum);
+	}
+	if (day >=3 & day <7) {
+		let sum = price*day-20;
+		alert(sum);
+	}
+	if (day <3) {
+		let sum = price*day;
+		alert(sum);
+	}
+</script>
