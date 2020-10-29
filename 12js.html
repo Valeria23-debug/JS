@@ -1,26 +1,16 @@
 <script type="text/javascript">
-	function prefill(col, value){
-		if(typeof col!== "number"){
-			alert("error");
-			return;
-		}
-		if(col==0){
-			return [];
-		}
-		if(col==1)
-		{
-			let arr = [value];
-			return arr;
-		}
-		else{
-			
-			let arr = prefill(--col,value);
-			arr.push(value);
-			return arr;
-		}
+	function sequence(n, pattern) {
+   if (typeof(pattern)=="function") {
+        let result = [];
+        for (let i=0; i<n; i++) {
+            result.push(pattern(n,i));
+
+        }
+        return result;
+    }
 
 	}
 
-	console.log(prefill(2,123));
+	console.log(sequence(10, (x, idx) => idx+1));
 
 </script>
