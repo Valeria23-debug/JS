@@ -1,0 +1,21 @@
+<script type="text/javascript">
+	function func(text) {
+	
+	let arr = [];  //создаём массив
+
+	for(let i=0; i<text; i++){
+		arr[i]=function(){  //в ячейку i нашего массива ложим функцию,которая возвращает i
+			return i;
+		};
+
+		}
+		return arr;  //возвращаем массив,состоящий из функций
+}
+
+
+var callbacks = func(5);  //переменной присваиваем наши массивы с функциями
+console.log(callbacks[3]()) ;  //вызываем функцию,которая возвращает значение ячейки массива
+console.log(callbacks[0]()) ;
+console.log(callbacks[1]()) ;
+
+</script>

@@ -1,0 +1,9 @@
+<script type="text/javascript">
+	function func(n) {
+		return function() {
+			return n;
+		}
+	}
+	let tree = func(5);
+	console.log(tree());
+</script>
