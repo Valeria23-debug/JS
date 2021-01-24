@@ -1,0 +1,16 @@
+<script type="text/javascript">
+	let f=function (arg1){
+		return arg1+1;
+	}
+	let g=function (arg2){
+		return arg2*2;
+	}
+
+	function compose(fun1, fun2){
+		return function(x){
+			return fun1(fun2(x));
+		}
+	}
+	let f3 = compose(g,f);
+	console.log(f3(6));
+</script>
