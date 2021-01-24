@@ -1,0 +1,24 @@
+<script type="text/javascript">
+  let f=function (arg){
+    return arg+1;
+  }
+  let g=function (arg){
+    return arg*2;
+  }
+
+  let a = function (arg){
+    return arg*3-1;
+  }
+  function compose(){
+    let arg = arguments;
+    return function(x){
+      let currentVal = arg[arg.length-1](x);
+      for (var i = arg.length-2; i > -1; i--) {
+        currentVal = arg[i](currentVal);
+      }
+        return currentVal;
+    }
+  }
+  let f3 = compose(g,f,a);
+  console.log(f3(3)); // 18
+</script>
