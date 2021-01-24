@@ -1,0 +1,21 @@
+<script type="text/javascript">
+	function sum(a){
+		let CurrentSum = a;//создаём переменную с текущим значением функции,которая в последствии будет хранить сумму всех чисел
+		function add(b){//функция,которая следующее значение в скобках будет прибавлять к нашему текущему значению и выполняться до тех пор пока скобки не закончатся
+			CurrentSum+=b;
+			return add;
+		}
+		add.toString=function(){//метод ,который выведет сумму всех чисел после окончания скобок
+			return CurrentSum;
+		} 
+		return add;
+	}
+	console.log( sum(1)(2)(-3));
+	console.log( sum(4)(9));
+	console.log( sum(1));
+	var addTwo = sum(2);
+console.log(addTwo);
+console.log(addTwo + 5); // 7
+console.log(addTwo(3)); // 5
+console.log(addTwo(3)(5)); // 10)
+</script>
