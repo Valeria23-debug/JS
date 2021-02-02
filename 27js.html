@@ -1,0 +1,23 @@
+
+	var obj = {
+  person: {
+    name: 'joe',
+    history: {
+      hometown: 'bratislava',
+      bio: {
+        funFact: 'I like fishing.'
+      }
+    }
+  }
+};
+ function hash(arr){
+arr=arr.split('.');
+let object=this;
+arr.forEach((element) => {
+	if(object!==undefined){
+		object=object[element];
+	}}
+)
+return object;
+}
+obj.hash=hash;

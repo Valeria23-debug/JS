@@ -1,0 +1,14 @@
+
+	function numbers(arr){
+    arr = arr.split('');
+    let res=0;
+    arr.forEach(function(i) {
+  		res+=+i;
+	});
+
+	if(res>=10){
+		res = numbers(String(res));
+	}
+    return res;
+	}
+	

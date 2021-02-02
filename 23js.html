@@ -1,0 +1,36 @@
+
+	function adder(num1, num2) { return num1 + num2; }
+	var adderSpy = spyOn( adder );
+	function spyOn(fun){
+		var callcount=0;
+		var paramArray=[];
+		var resultArray=[];
+		return function result(num1, num2){
+			let res=fun(num1,num2);
+			result.callCount=function(){
+				return callcount;
+			}
+
+			callcount++;
+			if(!paramArray.includes(num1))
+			{
+				paramArray.push(num1);
+			}
+			if(!paramArray.includes(num2))
+			{
+				paramArray.push(num2);
+			}
+			if(!resultArray.includes(res))
+			{
+				resultArray.push(res);
+			}
+
+			result.wasCalledWith=function(num){
+				return paramArray.includes(num);
+			}
+			result.returned=function(num){
+				return resultArray.includes(num);
+			}
+			return res;
+		}
+	}

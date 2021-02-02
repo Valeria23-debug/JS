@@ -1,0 +1,47 @@
+
+	var numbers = [1, 2, 3, 4, 5];
+	numbers.square=function(){
+    return this.map(function(num) {
+  	return num * num;
+	});
+	}
+	numbers.cube=function(){
+    return this.map(function(num) {
+  	return num * num*num;
+	});
+	}
+	numbers.average=function(){
+    var s = 0;	 
+    for (i = 0; i < this.length; i++){
+    s += this[i];
+      
+    }
+    return s/this.length;
+	}
+	numbers.sum=function(){
+	var s = 0;
+	for (i = 0; i < this.length; i++){
+    s += this[i];     
+    }
+    return s;
+	}
+	numbers.even=function(){
+		let arr = [];
+    for (i=0; i < this.length; i++){
+    	if(this[i] % 2 == 0) { 
+        arr.push(this[i]);
+    }   
+    }
+    return arr;
+	}
+	numbers.odd=function(){
+    let arr = [];
+    for (i=0; i < this.length; i++){
+    	if(this[i] % 2 !== 0) { 
+        arr.push(this[i]);
+    }
+	}
+    return arr;
+    }
+	
+	
