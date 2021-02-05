@@ -1,0 +1,9 @@
+function construct(Class) {
+let newParametr=[];
+
+for (var i=1; i<arguments.length;i++){
+newParametr.push(arguments[i]);
+}
+
+return new Class(...newParametr);
+}

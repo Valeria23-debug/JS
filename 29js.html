@@ -1,0 +1,13 @@
+function nouveau(Constructor) {
+let paramArray= [];
+for(let i=1;i<arguments.length;i++)
+{
+paramArray.push(arguments[i]);
+}
+
+let res = Constructor.prototype;
+
+Constructor.apply(res,paramArray);
+
+return res;
+}
