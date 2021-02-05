@@ -1,36 +1,43 @@
 
-	function adder(num1, num2) { return num1 + num2; }
-	var adderSpy = spyOn( adder );
-	function spyOn(fun){
-		var callcount=0;
-		var paramArray=[];
-		var resultArray=[];
-		return function result(num1, num2){
-			let res=fun(num1,num2);
-			result.callCount=function(){
-				return callcount;
-			}
+	function spyOn (func) {
+var callcount=0;
+var paramArray=[];
+var resultArray=[];
 
-			callcount++;
-			if(!paramArray.includes(num1))
-			{
-				paramArray.push(num1);
-			}
-			if(!paramArray.includes(num2))
-			{
-				paramArray.push(num2);
-			}
-			if(!resultArray.includes(res))
-			{
-				resultArray.push(res);
-			}
+var resFunction = function()
+{
+let res= func(...arguments);
 
-			result.wasCalledWith=function(num){
-				return paramArray.includes(num);
-			}
-			result.returned=function(num){
-				return resultArray.includes(num);
-			}
-			return res;
-		}
-	}
+callcount++;
+
+for(let i=0;i<arguments.length;i++)
+{
+if(!paramArray.includes(arguments[i]))
+{
+paramArray.push(arguments[i]);
+}
+}
+
+if(!resultArray.includes(res))
+{
+resultArray.push(res);
+}
+
+return res;
+}
+
+resFunction.callCount=function(){
+return callcount;
+}
+
+
+
+resFunction.wasCalledWith=function(num){
+return paramArray.includes(num);
+}
+resFunction.returned=function(num){
+return resultArray.includes(num);
+}
+
+return resFunction;
+}
