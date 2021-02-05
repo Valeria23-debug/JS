@@ -1,16 +1,14 @@
-
-	function createSecretHolder(n){
-		return {
+function createSecretHolder(secret) {
+return {
 			getSecret : function(){
-				return n;
+				return secret;
 			},
-			setSecret(n)
+			setSecret(secret)
 			{
 				this.getSecret = function()
 				{
-					return n;
+					return secret;
 				}
 			}
 		}
-	}
-	obj = createSecretHolder(5);
+}

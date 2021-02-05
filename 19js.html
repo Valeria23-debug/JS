@@ -1,16 +1,16 @@
 
-var complexFunction = function(arg1, arg2) {//создаём функцию,выполняющую определенные действия
-return arg2+arg1;
-};
-  function cached(fn){
-  const cache = Object.create(null);//создаём пустой объект
-  return function (arg3,arg4) {//возвращаем новую функцию
-
-    if ( !cache[arg3][arg4] ) {//если в объекте нет переданных аргументов
-        let result = fn(arg3,arg4);// то мы их кладем в нашу изначальную функцию,которая выполнит действия с ними
-        cache[arg3][arg4] = result;//кэшируем результат
-    }
-    return cache[arg3][arg4];//возвращаем результат кэша
-  }
+function cache(func) {
+const cache = Object.create(null);//создаём пустой объект
+return function () {
+let curentCacheKey = "";
+for(let i=0;i<arguments.length;i++)
+{
+curentCacheKey+=String(arguments[i])+String(i);
 }
-var cashedFunction= cashed(complexFunction);//ложим в кэшд нашу изначальную функцию 
+if ( !cache[curentCacheKey] ) {//если в объекте нет переданных аргументов
+let result = func(...arguments);// то мы их кладем в нашу изначальную функцию,которая выполнит действия с ними
+cache[curentCacheKey] = result;//кэшируем результат
+}
+return cache[curentCacheKey];//возвращаем результат кэша
+}
+}
