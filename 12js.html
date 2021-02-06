@@ -1,5 +1,4 @@
-
-	function sequence(n, pattern) {
+function sequence(n, pattern) {
    if (typeof(pattern)=="function") {
         let result = [];
         for (let i=0; i<n; i++) {
@@ -8,6 +7,5 @@
         }
         return result;
     }
-
-	}
-
+    return Array.from(Array(+n), () => pattern);
+}

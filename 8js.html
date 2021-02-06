@@ -1,8 +1,8 @@
-
-	let string = "Your, my, give, Teacher";
-	let array = string.split(',');
-	newArray = array.slice(1, -1);
-	alert(newArray.join(' '));
-	if (string=="" || newArray==""){
-		alert('0');
+function array(arr){
+	arr = arr.split(',');
+	let newArray = arr.slice(1, -1);
+	if (arr=="" || newArray==""){
+		return null;
 	}
+return String(newArray);
+}

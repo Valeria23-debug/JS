@@ -1,6 +1,11 @@
-
-	let items = [5, 23, 8, 9, 10, 30];
-	items.sort(function(a, b){
-		return a - b;
-	});
-	alert(items);
+function partitionOn(pred, items) {
+const falseArr = [];
+const trueArr = [];
+items.forEach(item => { pred(item) ? trueArr.push(item) : falseArr.push(item) });
+const arr = falseArr.concat(trueArr);
+for (let i = 0; i < items.length; i++) {
+items[i] = arr[i]
+}
+let i= falseArr.length;
+return i;
+}

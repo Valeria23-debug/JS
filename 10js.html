@@ -1,25 +1,37 @@
+function UserException(message) {
+this.message = message;
+this.name = "TypeError";
+}
 
-	function prefill(col, value){
-		if(typeof col!== "number"){
-			alert("error");
-			return;
-		}
-		if(col==0){
-			return [];
-		}
-		if(col==1)
-		{
-			let arr = [value];
-			return arr;
-		}
-		else{
-			
-			let arr = prefill(--col,value);
-			arr.push(value);
-			return arr;
-		}
+var filterInt = function (value) {
+if (/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
+return Number(value);
+return false;
+}
 
-	}
+function prefill(n, v) {
+if (n==="0")
+{
+n = 0;
+}
+if(typeof n!== "number" || filterInt(n)===false || filterInt(n)===Infinity || filterInt(n)===-Infinity || filterInt(n)<0){
+throw new UserException(String(n)+" is invalid");
+return;
+}
+if(n==0){
+return [];
+}
+if(n==1)
+{
+let arr = [v];
+return arr;
+}
+else{
 
+let arr = prefill(--n,v);
+arr.push(v);
+return arr;
+}
+} 
 	
 

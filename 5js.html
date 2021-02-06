@@ -1,8 +1,10 @@
 
-	let str = prompt('Введите строку', '');
+	function getMiddle(str)
+{
 	if (str.length%2==0){
-		alert (str[str.length/2-1] + str[str.length/2]);
+		return (str[str.length/2-1] + str[str.length/2]);
 	}
 	else{
-		alert (str[str.length/2-0.5]);
+		return (str[str.length/2-0.5]);
 	}
+}

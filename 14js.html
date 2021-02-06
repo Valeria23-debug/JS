@@ -1,17 +1,12 @@
+function createFunctions(n) {
+var callbacks = [];
 
-	function func(text) {
-	
-	let arr = [];  //создаём массив
-
-	for(let i=0; i<text; i++){
-		arr[i]=function(){  //в ячейку i нашего массива ложим функцию,которая возвращает i
-			return i;
-		};
-
-		}
-		return arr;  //возвращаем массив,состоящий из функций
+for (let i=0; i<n; i++) {
+callbacks[i]=function() {
+return i;
+};
 }
 
-
-var callbacks = func(5);  //переменной присваиваем наши массивы с функциями
+return callbacks;
+}
 
